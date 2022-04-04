@@ -1,0 +1,83 @@
+GET http://localhost:3000/todos/
+
+###
+GET http://localhost:3000/todos/2/
+
+###
+POST http://localhost:3000/todos/
+Content-Type:  application/json
+
+{
+  "id" : 13,
+  "todo": "Finalize event theme",
+  "priority": "LOW",
+  "status": "DO",
+  "category": "HOME",
+  "dueDate": "2021-2-9"
+}
+
+
+###
+PUT http://localhost:3000/todos/2/
+Content-Type:  application/json
+
+{
+  "dueDate" : "1998-10-1"
+}
+
+
+###
+DELETE http://localhost:3000/todos/13/
+
+
+/// rest API
+
+### single API check
+GET http://localhost:3000/todos/?category=HOME
+###
+GET http://localhost:3000/todos/?priority=LOW
+###
+GET http://localhost:3000/todos/?status=TO%20DO
+###
+GET http://localhost:3000/todos/?date=2021-4-2
+
+
+### Double API check
+
+/// c & p
+GET http://localhost:3000/todos/?category=HOME&&priority=LOW     
+###
+/// c & s
+GET http://localhost:3000/todos/?category=HOME&&status=TO%20DO
+###
+/// c & d
+GET http://localhost:3000/todos/?category=WORK&&date=2021-4-2
+###
+/// p & s
+GET http://localhost:3000/todos/?priority=LOW&&status=TO%20DO
+###
+/// p & d
+GET http://localhost:3000/todos/?priority=LOW&&date=2021-4-2
+###
+/// s & d
+GET http://localhost:3000/todos/?status=TO%20DO&&date=2021-4-2
+
+
+//// 3 API
+###
+/// c & p & s
+GET http://localhost:3000/todos/?category=HOME&&priority=LOW&status=TO%20DO    
+###
+/// c & s & d
+GET http://localhost:3000/todos/?category=HOME&priority=LOW&date=2020-9-22
+###
+/// c & s & d
+GET http://localhost:3000/todos/?category=HOME&status=TO%20DO&date=2020-9-22
+###
+/// p & s & d
+GET http://localhost:3000/todos/?priority=LOW&&status=TO%20DO&date=2020-9-22
+
+
+###
+/// 4 combo
+GET http://localhost:3000/todos?priority=HIGH&status=TO%20DO&category=LEARNING&date=2010-10-22
